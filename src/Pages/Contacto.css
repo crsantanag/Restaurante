@@ -4,17 +4,17 @@
 }
 
 .nombre {
-      width: 100px;
+      width: 80px;
       text-align: left;
   }
 
 .email{
-    width: 100px;
+    width: 80px;
     text-align: left;
 }
 
 .mensaje{
-  width: 100px;
+  width: 80px;
   text-align:start;
 
 }
@@ -24,7 +24,7 @@
   }
 
 .boton_contacto {
-  width: 400px;
+  width: 380px;
   font-size: 18px;
   align-items: center;
   text-align: center;

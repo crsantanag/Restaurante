@@ -12,7 +12,7 @@
 }
 
 .reserva_nombre {
-    width: 150px;
+    width: 130px;
     font-size: 18px;
     text-align: left;
     padding-right: 5px;
@@ -37,14 +37,14 @@
 }
 
 .reserva_hora {
-    width: 150px;
+    width: 130px;
     text-align: left;
     font-size: 18px;
     padding-right: 5px;
 }
 
 .reserva_fecha {
-    width: 150px;
+    width: 130px;
     text-align: left;
     font-size: 18px;
     padding-right: 5px;
@@ -60,7 +60,7 @@
 }
 
 .boton_reserva {
-    width: 400px;
+    width: 380px;
     font-size: 18px;
     align-items: center;
     text-align: center;
