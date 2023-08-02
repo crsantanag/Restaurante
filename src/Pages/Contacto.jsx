@@ -30,8 +30,8 @@ export const Contacto = () => {
       }
     }
 
-    const  enviarMensaje  =  (contacto) => {
-      {/* await db.collection ("reservas").add (contacto) */}
+    const  enviarMensaje  = async (contacto) => {
+      await db.collection ("mensajes").add (contacto)
       alert ('Mensaje enviado')
       setNombre ('')
       setEmail('')
