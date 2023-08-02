@@ -1,0 +1,13 @@
+.inicio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.portada img {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+

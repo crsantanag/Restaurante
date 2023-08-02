@@ -1,0 +1,36 @@
+.contacto {
+  text-align: center;
+  background-color: rgb(230, 230, 230);
+}
+
+.nombre {
+      width: 100px;
+      text-align: left;
+  }
+
+.email{
+    width: 100px;
+    text-align: left;
+}
+
+.mensaje{
+  width: 100px;
+  text-align:start;
+
+}
+
+.campo {
+    width: 300px;
+  }
+
+.boton {
+  width: 400px;
+  font-size: 18px;
+  align-items: center;
+  text-align: center;
+  background-color: #e9f0fd;
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 5px;
+}
+

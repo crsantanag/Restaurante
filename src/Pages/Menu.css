@@ -1,0 +1,19 @@
+.menu {
+    align-items: center;
+    text-align: center;
+    background-color: rgb(230, 230, 230);
+}
+
+.menu img{
+    display: inline-block;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    vertical-align: middle;
+}
+
+.menu_carta {
+    display: inline-block;
+    max-width: 60%;
+    vertical-align: middle;
+}
