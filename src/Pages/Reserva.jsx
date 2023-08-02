@@ -17,15 +17,15 @@ export const Reserva = () => {
 //  const fechaHoyStringCLS = fechaHoyCLS.toISOString().slice(0, 10)
 //  const horaHoyStringCLS  = fechaHoyCLS.toISOString().slice(11, 16)
 
-  const fechaMananaNumero    = fechaHoyNumero + (24*60*60*1000) - (4*60*60*1000)
-  const fechaManana          = new Date(fechaMananaNumero) // Tiempo en milisegundos
-  const fechaMananaStringCLS = fechaManana.toISOString().slice(0, 10);
+  const fechaMananaNumero   = fechaHoyNumero + (24*60*60*1000) - (4*60*60*1000)
+  const fechaManana         = new Date(fechaMananaNumero) // Tiempo en milisegundos
+  const fechaMananaStringCL = fechaManana.toISOString().slice(0, 10);
 
   const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
   const [telefono, setTelefono] = useState('');
 
-  const [comensales, setComensales] = useState(2)
+  const [comensales, setComensales] = useState(1)
   useEffect( () => {
     },
     [comensales]
@@ -77,7 +77,7 @@ export const Reserva = () => {
       setNombre ('')
       setEmail('')
       setTelefono('')
-      setComensales(2)
+      setComensales(1)
       setHoraReserva('')
       setFechaReserva('')
       }
@@ -94,7 +94,8 @@ export const Reserva = () => {
           <br />
           <h5>Restricciones: <br/>
           - No  se  aceptan reservas para el mismo día <br/>
-          - Mínimo 2 y Máximo 12 comensales por reserva <br /> </h5>
+          - Máximo 12 comensales por reserva <br />
+          - Reservas para grupos hacerlas por teléfono<br /> </h5>
           <br/>
 
           <form>
@@ -139,7 +140,7 @@ export const Reserva = () => {
         <br />
         <div className='misma_linea'>
           <div className='reserva_signo'> <BotonRestar personas = {comensales} value = {setComensales} /> </div>
-          <div className='reserva_item'>   Reserva para {comensales} comensales </div>
+          <div className='reserva_item'>   Reserva para {comensales} comensal(es) </div>
           <div className='reserva_signo'> <BotonSumar  personas = {comensales} value = {setComensales} /> </div>
         </div>
 
@@ -167,9 +168,11 @@ export const Reserva = () => {
 
         <form onSubmit={handleSubmit}>
           <div>
-            <label  className='reserva_fecha' htmlFor="fechaReserva">Fecha reserva :</label>
+            <label  className='reserva_fecha' 
+                    htmlFor="fechaReserva">
+                    Fecha reserva :</label>
             <input  className='reserva_campos'
-                    min={fechaMananaStringCLS} 
+                    min={fechaMananaStringCL} 
                     type="date" 
                     id="fechaReserva" 
                     value={fechaReserva} 
