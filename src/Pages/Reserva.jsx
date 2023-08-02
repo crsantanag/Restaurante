@@ -17,8 +17,8 @@ export const Reserva = () => {
 //  const fechaHoyStringCLS = fechaHoyCLS.toISOString().slice(0, 10)
 //  const horaHoyStringCLS  = fechaHoyCLS.toISOString().slice(11, 16)
 
-  const fechaMananaNumero = fechaHoyNumero + (24*60*60*1000) - (4*60*60*1000)
-  const fechaManana       = new Date(fechaMananaNumero) // Tiempo en milisegundos
+  const fechaMananaNumero    = fechaHoyNumero + (24*60*60*1000) - (4*60*60*1000)
+  const fechaManana          = new Date(fechaMananaNumero) // Tiempo en milisegundos
   const fechaMananaStringCLS = fechaManana.toISOString().slice(0, 10);
 
   const [nombre, setNombre] = useState('');

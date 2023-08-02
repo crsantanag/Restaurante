@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { db } from '../firebase/firebase'
 import './Contacto.css'
 
 export const Contacto = () => {
@@ -11,15 +12,36 @@ export const Contacto = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Aquí agregar la lógica para enviar los datos del formulario a un servidor
-    console.log('Nombre:', nombre);
-    console.log('Email:', email);
-    console.log('Mensaje:', mensaje);
   };
+
+  const validarDatos = () => {
+    if (nombre.trim() === '' || email.trim() === '' || mensaje === '') 
+      {
+        alert ('Debe completar todos los datos solicitados')
+      } 
+    else
+      {
+        const contacto = {
+          nombre: nombre,
+          email : email,
+          mensaje : mensaje
+        }
+        enviarMensaje (contacto)
+      }
+    }
+
+    const  enviarMensaje  =  (contacto) => {
+      {/* await db.collection ("reservas").add (contacto) */}
+      alert ('Mensaje enviado')
+      setNombre ('')
+      setEmail('')
+      setMensaje('')
+      }
 
   return (
     <div className="contacto">
       <br/>
-      <h2>¿ALGUNA PREGUNTA?</h2>
+      <h2>¿ALGUNA PREGUNTA O COMENTARIO?</h2>
       <h5>No dudes en contactarnos. Estamos encantados <br/>
           de ayudarte en todo lo que puedas necesitar.</h5>
       <form onSubmit={handleSubmit}>
@@ -59,7 +81,12 @@ export const Contacto = () => {
           />
         </div>
         <br />
-        <button className='boton' type="submit"> Enviar mensaje</button>
+        <button className='boton_contacto' 
+                type="submit"
+                id="boton_contacto"
+                onClick= {validarDatos}>
+                Enviar mensaje</button>
+
         <br/>
       </form>
       <br/>

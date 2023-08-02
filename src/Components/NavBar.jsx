@@ -6,7 +6,7 @@ export const NavBar = () => {
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <NavLink className="navbar-brand" to="/">
-            <img src="/assets/images/logo.png" alt="Logo" height="50" />
+            <img src="/assets/images/logo.jpg" alt="Logo" height="50" />
           </NavLink>
           <button
             className="navbar-toggler"
@@ -21,11 +21,6 @@ export const NavBar = () => {
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <NavLink className="nav-link" aria-current="page" to="/">
-                  Bienvenidos
-                </NavLink>
-              </li>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/nosotros">
                   Nosotros
