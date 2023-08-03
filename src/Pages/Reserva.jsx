@@ -95,7 +95,7 @@ export const Reserva = () => {
         <br/>
         <h2>Solicitud de Reserva</h2>
         <br />
-        <h5>Restricciones: <br/>
+        <h5>Condiciones: <br/>
         - No  se  aceptan reservas para el mismo día <br/>
         - Máximo 12 comensales por reserva <br />
         - Reservas para grupos hacerlas por teléfono<br /> </h5>
