@@ -17,12 +17,12 @@
     text-align: center;
   }
 
-  .right-content {
+.right-content {
     flex: 1;
     margin-left: 20px;
   }
 
-  .right-content img{
+.right-content img{
     display: inline-block;
     width: 500px;
     vertical-align: middle;

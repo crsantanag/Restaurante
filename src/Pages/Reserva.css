@@ -11,6 +11,40 @@
     vertical-align: middle;
 }
 
+.mostrar {
+    justify-content: center;
+    padding: 50px;
+    align-items: 'center';
+    justify-content: center;
+    padding-top: 0;
+}
+
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 15px;
+    align-items: center;
+    justify-content: center
+}
+
+.left-content {
+    text-align: center;
+}
+
+.right-content {
+    align-items: center;
+    justify-content: center
+}
+
+.mesas {
+    width: 60px;
+    height:60px;
+    background-color: lightseagreen;
+    color: white;
+    text-align: center;
+    margin: 20px
+}
+
 .reserva_nombre {
     width: 130px;
     font-size: 18px;

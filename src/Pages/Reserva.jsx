@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { BotonRestar } from './BotonRestar'
 import { BotonSumar }  from './BotonSumar'
 import { db } from '../firebase/firebase'
+import { ReservaDisplay } from './ReservaDisplay'
 import './Reserva.css'
 
 
@@ -83,69 +84,40 @@ export const Reserva = () => {
       }
 
   return (
-    <div className='reserva'>
-      <br />
-      <img src="/assets/images/reserva.jpg" alt="Reserva" />
-      <br />
-      <br />
+  <>
+  <div className='reserva'>
+    <br />
+    <img src="/assets/images/reserva.jpg" alt="Reserva" />
+    <br />
+    <br />
+    <div className='mostrar'>
+      <div className="left-content">
+        <br/>
+        <h2>Solicitud de Reserva</h2>
+        <br />
+        <h5>Restricciones: <br/>
+        - No  se  aceptan reservas para el mismo día <br/>
+        - Máximo 12 comensales por reserva <br />
+        - Reservas para grupos hacerlas por teléfono<br /> </h5>
+        <br/>
 
-          <br/>
-          <h2>Solicitud de Reserva</h2>
-          <br />
-          <h5>Restricciones: <br/>
-          - No  se  aceptan reservas para el mismo día <br/>
-          - Máximo 12 comensales por reserva <br />
-          - Reservas para grupos hacerlas por teléfono<br /> </h5>
-          <br/>
-
-          <form>
+        <form onSubmit={handleSubmit}>
           <div>
-            <label  className="reserva_nombre" 
-                    htmlFor="nombre">Nombre : 
-            </label>
-            <input  className="reserva_campos" 
-                    type="text" 
-                    id="nombre" 
-                    value={nombre} 
-                    onChange={(event) => setNombre(event.target.value)}
-            />
+            <label  className='reserva_fecha' 
+                    htmlFor="fechaReserva">
+                    Fecha reserva :</label>
+            <input  className='reserva_campos'
+                    min={fechaMananaStringCL} 
+                    type="date" 
+                    id="fechaReserva" 
+                    value={fechaReserva} 
+                    onChange={(event) => {
+                            setFechaReserva(event.target.value)
+                            ReservaDisplay()} } />
           </div>
-          <div>
-
-            <label  className="reserva_nombre" 
-                    htmlFor="email">Email @ : 
-            </label>
-            <input  className="reserva_campos" 
-                    type="email" 
-                    id="email" 
-                    value={email} 
-                    onChange={(event) => setEmail(event.target.value)}
-            />
-          </div>
-          <div>
-
-            <label  className="reserva_nombre" 
-                    htmlFor="telefono">Teléfono : 
-            </label>
-            <input  className="reserva_campos" 
-                    type="tel" 
-                    id="telefono" 
-                    value={telefono} 
-                    onChange={(event) => setTelefono(event.target.value)}
-            />
-          </div>
-
         </form>
 
-        <br />
-        <div className='misma_linea'>
-          <div className='reserva_signo'> <BotonRestar personas = {comensales} value = {setComensales} /> </div>
-          <div className='reserva_item'>   Reserva para {comensales} comensal(es) </div>
-          <div className='reserva_signo'> <BotonSumar  personas = {comensales} value = {setComensales} /> </div>
-        </div>
-
         <form>
-          <br />
           <div>
             {/*
             input type time min 19.00 max 23.00 step 00.30 
@@ -166,20 +138,52 @@ export const Reserva = () => {
           </div>
         </form>
 
-        <form onSubmit={handleSubmit}>
+        <br />
+        <div className='misma_linea'>
+          <div className='reserva_signo'> <BotonRestar personas = {comensales} value = {setComensales} /> </div>
+          <div className='reserva_item'>   Reserva para {comensales} comensal(es) </div>
+          <div className='reserva_signo'> <BotonSumar  personas = {comensales} value = {setComensales} /> </div>
+        </div>
+
+        <br />
+        <br />
+        <form>
           <div>
-            <label  className='reserva_fecha' 
-                    htmlFor="fechaReserva">
-                    Fecha reserva :</label>
-            <input  className='reserva_campos'
-                    min={fechaMananaStringCL} 
-                    type="date" 
-                    id="fechaReserva" 
-                    value={fechaReserva} 
-                    onChange={(event) => setFechaReserva(event.target.value)} />
+            <label  className="reserva_nombre" 
+                    htmlFor="nombre">Nombre : 
+            </label>
+            <input  className="reserva_campos" 
+                    type="text" 
+                    id="nombre" 
+                    value={nombre} 
+                    onChange={(event) => setNombre(event.target.value)}
+            />
+          </div>
+          <div>
+            <label  className="reserva_nombre" 
+                    htmlFor="email">Email @ : 
+            </label>
+            <input  className="reserva_campos" 
+                    type="email" 
+                    id="email" 
+                    value={email} 
+                    onChange={(event) => setEmail(event.target.value)}
+            />
+          </div>
+          <div>
+            <label  className="reserva_nombre" 
+                    htmlFor="telefono">Teléfono : 
+            </label>
+            <input  className="reserva_campos" 
+                    type="tel" 
+                    id="telefono" 
+                    value={telefono} 
+                    onChange={(event) => setTelefono(event.target.value)}
+            />
           </div>
         </form>
 
+        <br />
         <br />
         <button className='boton_reserva' 
                 id='boton_reserva' 
@@ -192,5 +196,35 @@ export const Reserva = () => {
         <br />
       </div>
 
+      <div className='right-content'>
+        < br />
+        <h2>Mesas </h2>
+        <br />
+        <div className='contenedor'>
+          <div className="mesas">1</div>
+          <div className="mesas">2</div>
+          <div className="mesas">3</div>
+          <div className="mesas">4</div>
+          <div className="mesas">5</div>
+          <div className="mesas">6</div>
+          <div className="mesas">7</div>
+          <div className="mesas">8</div>
+          <div className="mesas">9</div>
+          <div className="mesas">10</div>
+          <div className="mesas">11</div>
+          <div className="mesas">12</div>
+          <div className="mesas">13</div>
+          <div className="mesas">14</div>
+          <div className="mesas">15</div>
+          <div className="mesas">16</div>
+          <div className="mesas">17</div>
+          <div className="mesas">18</div>
+          <div className="mesas">19</div>
+          <div className="mesas">20</div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </>
   )
 }
