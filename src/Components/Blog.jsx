@@ -4,6 +4,8 @@ export const Blog = () => {
 
   return (
     <div className="blog">
+      <br/>
+      <h2> Blog</h2>
     <br/>
     <div className="card-container">
 

@@ -1,7 +1,7 @@
-import "./Bienvenidos.css";
+import "./Portada.css";
 
 
-export const Bienvenidos = () => {
+export const Portada = () => {
   return (
     <>
 

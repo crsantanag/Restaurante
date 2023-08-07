@@ -1,6 +1,6 @@
 import './Boton.css'
 
-export const BotonRestar = ( { value, personas } ) => {
+export const BotonRestar = ( { personas, value  } ) => {
     
      const restarUno = () => {
         if (personas == 1) return;

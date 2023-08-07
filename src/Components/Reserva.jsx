@@ -1,20 +1,20 @@
 import { useState, useEffect } from 'react'
+import { db } from '../firebase/firebase'
 import { BotonRestar } from './BotonRestar'
 import { BotonSumar }  from './BotonSumar'
-import { db } from '../firebase/firebase'
-import { ReservaDisplay } from './ReservaDisplay'
+import { ReservaMostrarMesas } from './ReservaMostrarMesas'
 import './Reserva.css'
-
 
 export const Reserva = () => {
 
   const fechaActual      = new Date()
   const fechaHoyCompleta = fechaActual.toISOString()
-  const fechaHoyObjeto = new Date(fechaHoyCompleta);
+  const fechaHoyObjeto   = new Date(fechaHoyCompleta);
   const fechaHoyNumero   = fechaHoyObjeto.getTime();
 
 //  const fechaHoyNumeroCLS = fechaHoyNumero - (4*60*60*1000)
 //  const fechaHoyCLS       = new Date(fechaHoyNumeroCLS)
+//  const fechaHoyStringCLS = fechaHoyCLS.toISOString()
 //  const fechaHoyStringCLS = fechaHoyCLS.toISOString().slice(0, 10)
 //  const horaHoyStringCLS  = fechaHoyCLS.toISOString().slice(11, 16)
 
@@ -22,11 +22,14 @@ export const Reserva = () => {
   const fechaManana         = new Date(fechaMananaNumero) // Tiempo en milisegundos
   const fechaMananaStringCL = fechaManana.toISOString().slice(0, 10);
 
+  let mesasLibres = 0
+
   const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
   const [telefono, setTelefono] = useState('');
 
   const [comensales, setComensales] = useState(1)
+
   useEffect( () => {
     },
     [comensales]
@@ -45,12 +48,24 @@ export const Reserva = () => {
     { value: '22:00', label: '22:00' },
   ];
 
-  const handleChange = (event) => {
-    setHoraReserva(event.target.value);
+
+  const handleChangeFecha = (event) => {
+    event.preventDefault();
+    setFechaReserva(event.target.value);
+    // Llamar a las funciones que necesito aquí
+    
   };
 
+{/*
   const handleSubmit = (event) => {
     event.preventDefault();
+    // Aquí puedes manejar el envío del formulario
+  };
+*/}
+
+  const handleChangeHora = (event) => {
+    event.preventDefault();
+    setHoraReserva(event.target.value);
   };
 
   const validarDatos = () => {
@@ -60,13 +75,16 @@ export const Reserva = () => {
       } 
     else
       {
+        const mesas = Math.round(Math.max(1, (comensales / 2) - 1));
+
         const reserva = {
+          fecha: fechaReserva,
+          hora : horaReserva,
           nombre: nombre,
           email : email,
           telefono : telefono,
           comensales: comensales,
-          hora : horaReserva,
-          fecha: fechaReserva
+          mesas: mesas
         }
         enviarReserva (reserva)
       }
@@ -86,11 +104,12 @@ export const Reserva = () => {
   return (
   <>
   <div className='reserva'>
-    <br />
+  {/*  <br />
     <img src="/assets/images/reserva.jpg" alt="Reserva" />
-    <br />
+  <br /> */}
     <br />
     <div className='mostrar'>
+
       <div className="left-content">
         <br/>
         <h2>Solicitud de Reserva</h2>
@@ -101,7 +120,7 @@ export const Reserva = () => {
         - Reservas para grupos hacerlas por teléfono<br /> </h5>
         <br/>
 
-        <form onSubmit={handleSubmit}>
+        <form >
           <div>
             <label  className='reserva_fecha' 
                     htmlFor="fechaReserva">
@@ -111,9 +130,7 @@ export const Reserva = () => {
                     type="date" 
                     id="fechaReserva" 
                     value={fechaReserva} 
-                    onChange={(event) => {
-                            setFechaReserva(event.target.value)
-                            ReservaDisplay()} } />
+                    onChange={ handleChangeFecha } />
           </div>
         </form>
 
@@ -128,7 +145,7 @@ export const Reserva = () => {
             <select className='reserva_campos' 
                     id="horas" 
                     value={horaReserva} 
-                    onChange={handleChange}>
+                    onChange={ handleChangeHora }>
                     <option value="">-- Selecciona --</option>
                     { horas.map( (opcion) => (  <option key={opcion.value} 
                                                         value={opcion.value}> 
@@ -198,31 +215,14 @@ export const Reserva = () => {
 
       <div className='right-content'>
         < br />
-        <h2>Mesas </h2>
+        <h2>Mesas</h2>
         <br />
-        <div className='contenedor'>
-          <div className="mesas">1</div>
-          <div className="mesas">2</div>
-          <div className="mesas">3</div>
-          <div className="mesas">4</div>
-          <div className="mesas">5</div>
-          <div className="mesas">6</div>
-          <div className="mesas">7</div>
-          <div className="mesas">8</div>
-          <div className="mesas">9</div>
-          <div className="mesas">10</div>
-          <div className="mesas">11</div>
-          <div className="mesas">12</div>
-          <div className="mesas">13</div>
-          <div className="mesas">14</div>
-          <div className="mesas">15</div>
-          <div className="mesas">16</div>
-          <div className="mesas">17</div>
-          <div className="mesas">18</div>
-          <div className="mesas">19</div>
-          <div className="mesas">20</div>
+        <div>
+          <ReservaMostrarMesas fecha = {fechaReserva} mesas = {mesasLibres}/>
+          Mesas libres {mesasLibres}
         </div>
       </div>
+      
     </div>
     </div>
   </>
