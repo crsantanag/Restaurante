@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+
 import './Administracion.css'
 
 export const Administracion = () => {
@@ -14,17 +16,19 @@ export const Administracion = () => {
     setPassword(event.target.value);
   };
 
+  const navigate = useNavigate();
+
+  const redirectToAbout = () => {
+      navigate('/administrareservas'); 
+  };
+
   const handleSubmitLogin = (event) => {
     event.preventDefault();
-    // Aquí va la lógica de inicio de sesión
+
     if (username == 'admin' && password == 'admin' ) {
-    const urlActual = window.location.href;
-    const urlNueva = urlActual.replace('administracion', 'consultareservas');
-    alert(urlActual)
-    alert(urlNueva)
-    location.replace(urlNueva)
+      redirectToAbout()
+      }
     }
-  };
 
 
 return (

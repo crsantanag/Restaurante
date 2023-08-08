@@ -7,7 +7,7 @@ import { Contacto } from '../Components/Contacto'
 import { Ubicacion } from '../Components/Ubicacion'
 import { Blog } from '../Components/Blog'
 import { Administracion } from "../Components/Administracion";
-import { ConsultaReservas } from "../Components/ConsultaReservas";
+import { AdministraReservas } from "../Components/AdministraReservas";
 
 
 export const MainRoutes = () => {
@@ -21,7 +21,7 @@ export const MainRoutes = () => {
       <Route path='/ubicacion' element={<Ubicacion />} />
       <Route path='/blog' element={<Blog />} />
       <Route path='/administracion' element={<Administracion />} />
-      <Route path='/consultareservas' element={<ConsultaReservas />} />
+      <Route path='/administrareservas' element={<AdministraReservas />} />
       <Route path='*' element={<h1>Not Found</h1>} />
     </Routes>
   );

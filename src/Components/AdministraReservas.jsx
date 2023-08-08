@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { db } from '../firebase/firebase'
-import './ConsultaReservas.css'
+import './AdministraReservas.css'
 
-export const ConsultaReservas = () => {
+export const AdministraReservas = () => {
 
   const fechaActual      = new Date()
   const fechaHoyCompleta = fechaActual.toISOString()
@@ -46,7 +46,7 @@ return (
     <div className='mostrar_admin'>
         <br />
         <form >
-        <h2>Consulta de Reservas</h2>
+        <h2>Administración de Reservas</h2>
         <div>
             <label  className='reserva_fecha_admin' 
                     htmlFor="fechaConsulta">

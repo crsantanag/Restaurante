@@ -56,10 +56,6 @@ export const NavBar = () => {
                   Administración
                 </NavLink>
               </li>
-              <li className="nav-item ml-auto">
-                <NavLink className="nav-link" to="/consultareservas">
-                </NavLink>
-              </li>
             </ul>
           </div>
         </div>
