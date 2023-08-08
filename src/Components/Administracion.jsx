@@ -25,7 +25,7 @@ export const Administracion = () => {
   const handleSubmitLogin = (event) => {
     event.preventDefault();
 
-    if (username == 'admin' && password == 'admin' ) {
+    if (username == 'admin' && password == '' ) {
       redirectToAdmin()
       }
     }
