@@ -6,7 +6,8 @@ import { Reserva } from '../Components/Reserva'
 import { Contacto } from '../Components/Contacto'
 import { Ubicacion } from '../Components/Ubicacion'
 import { Blog } from '../Components/Blog'
-import { Admin } from "../Components/Admin";
+import { Administracion } from "../Components/Administracion";
+import { ConsultaReservas } from "../Components/ConsultaReservas";
 
 
 export const MainRoutes = () => {
@@ -19,7 +20,8 @@ export const MainRoutes = () => {
       <Route path='/contacto' element={<Contacto />} />
       <Route path='/ubicacion' element={<Ubicacion />} />
       <Route path='/blog' element={<Blog />} />
-      <Route path='/admin' element={<Admin />} />
+      <Route path='/administracion' element={<Administracion />} />
+      <Route path='/consultareservas' element={<ConsultaReservas />} />
       <Route path='*' element={<h1>Not Found</h1>} />
     </Routes>
   );

@@ -1,0 +1,51 @@
+.admin {
+    text-align: left;
+    background-color: rgb(230, 230, 230);
+}
+
+.mostrar_admin {
+    justify-content: left;
+    padding: 120px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.consulta_username_admin {
+    text-align: left;
+    justify-content: left;
+    width: 200px;
+    font-size: 18px;
+    padding-right: 5px;
+}
+
+
+
+.reserva_fecha_admin {
+    width: 200px;
+    font-size: 18px;
+    padding-right: 5px;
+}
+
+.reserva_campos_admin {
+    align-items: center;
+    text-align: center;
+    width: 250px;
+    font-size: 18px;
+    border-radius: 0px;
+    border: 1px solid black
+}
+
+.boton_reserva_admin {
+    width: 380px;
+    font-size: 18px;
+    align-items: center;
+    text-align: center;
+    background-color: #e9f0fd;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+

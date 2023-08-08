@@ -102,11 +102,12 @@ export const Reserva = () => {
       }
 
   return (
+    
   <>
   <div className='reserva'>
-  {/*  <br />
+  {/* <br />
     <img src="/assets/images/reserva.jpg" alt="Reserva" />
-  <br /> */}
+    <br /> */}
     <br />
     <div className='mostrar'>
 
@@ -205,7 +206,7 @@ export const Reserva = () => {
         <button className='boton_reserva' 
                 id='boton_reserva' 
                 type="submit"
-                onClick= {validarDatos}>
+                onClick= { validarDatos }>
                 Realizar reserva
         </button>
         <br />

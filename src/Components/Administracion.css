@@ -1,0 +1,31 @@
+.administracion {
+    text-align: left;
+    background-color: rgb(230, 230, 230);
+}
+
+.administracion_admin {
+    justify-content: left;
+    padding: 120px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.administracion_username_admin {
+    text-align: left;
+    justify-content: left;
+    width: 200px;
+    font-size: 18px;
+    padding-right: 5px;
+}
+
+.administracion_submit {
+    width: 400px;
+    font-size: 18px;
+    align-items: center;
+    text-align: center;
+    background-color: #e9f0fd;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 5px;
+}
