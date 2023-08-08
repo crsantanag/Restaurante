@@ -20,6 +20,8 @@ export const Administracion = () => {
     if (username == 'admin' && password == 'admin' ) {
     const urlActual = window.location.href;
     const urlNueva = urlActual.replace('administracion', 'consultareservas');
+    alert(urlActual)
+    alert(urlNueva)
     location.replace(urlNueva)
     }
   };
