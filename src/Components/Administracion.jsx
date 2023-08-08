@@ -18,7 +18,7 @@ export const Administracion = () => {
 
   const navigate = useNavigate();
 
-  const redirectToAbout = () => {
+  const redirectToAdmin = () => {
       navigate('/administrareservas'); 
   };
 
@@ -26,7 +26,7 @@ export const Administracion = () => {
     event.preventDefault();
 
     if (username == 'admin' && password == 'admin' ) {
-      redirectToAbout()
+      redirectToAdmin()
       }
     }
 
