@@ -61,7 +61,7 @@
 
 .reserva_signo {
     display: inline-block;
-    font-size: 18px;
+    font-size: 12px;
 }
 
 .reserva_item {
@@ -87,14 +87,14 @@
 .reserva_campos {
     align-items: center;
     text-align: center;
-    width: 250px;
+    width: 200px;
     font-size: 18px;
     border-radius: 0px;
     border: 1px solid black
 }
 
 .boton_reserva {
-    width: 380px;
+    width: 330px;
     font-size: 18px;
     align-items: center;
     text-align: center;
