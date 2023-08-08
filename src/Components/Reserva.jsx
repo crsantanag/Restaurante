@@ -22,8 +22,6 @@ export const Reserva = () => {
   const fechaManana         = new Date(fechaMananaNumero) // Tiempo en milisegundos
   const fechaMananaStringCL = fechaManana.toISOString().slice(0, 10);
 
-  let mesasLibres = 0
-
   const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
   const [telefono, setTelefono] = useState('');
@@ -37,6 +35,8 @@ export const Reserva = () => {
 
   const [fechaReserva, setFechaReserva] = useState('')
   const [horaReserva, setHoraReserva] = useState('')
+  const [mesasReserva, setMesasReserva] = useState(0)
+  const [mesasLibres, setMesasLibres] = useState(24)
 
   const horas = [
     { value: '19:00', label: '19:00' },
@@ -51,17 +51,8 @@ export const Reserva = () => {
 
   const handleChangeFecha = (event) => {
     event.preventDefault();
-    setFechaReserva(event.target.value);
-    // Llamar a las funciones que necesito aquí
-    
+    setFechaReserva(event.target.value);  
   };
-
-{/*
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Aquí puedes manejar el envío del formulario
-  };
-*/}
 
   const handleChangeHora = (event) => {
     event.preventDefault();
@@ -77,22 +68,32 @@ export const Reserva = () => {
       {
         const mesas = Math.round(Math.max(1, (comensales / 2) - 1));
 
-        const reserva = {
-          fecha: fechaReserva,
-          hora : horaReserva,
-          nombre: nombre,
-          email : email,
-          telefono : telefono,
-          comensales: comensales,
-          mesas: mesas
+        if (mesasLibres == 0) {
+          alert ('No existen mesas disponibles')
         }
-        enviarReserva (reserva)
+        else {
+          if (mesas > mesasLibres) {
+            alert ('No existen mesas disponibles para esa cantidad de comensales')
+          }
+          else {
+            const reserva = {
+              fecha: fechaReserva,
+              hora : horaReserva,
+              nombre: nombre,
+              email : email,
+              telefono : telefono,
+              comensales: comensales,
+              mesas: mesas
+            }
+            enviarReserva (reserva)
+          }
+        }
       }
     }
 
     const  enviarReserva  = async (reserva) => {
       await db.collection ("reservas").add (reserva)
-      alert ('Reserva realizada')
+      alert ('Reserva realizada exitosamente')
       setNombre ('')
       setEmail('')
       setTelefono('')
@@ -218,7 +219,7 @@ export const Reserva = () => {
         <h2>Mesas</h2>
         <br />
         <div>
-          <ReservaMostrarMesas fecha = {fechaReserva} />
+          <ReservaMostrarMesas fecha = {fechaReserva} mesas = {setMesasLibres}/>
         </div>
       </div>
       

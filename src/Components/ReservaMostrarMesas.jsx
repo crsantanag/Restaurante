@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { db } from "../firebase/firebase";
 import './Reserva.css'
 
-export const ReservaMostrarMesas = ({ fecha }) => {
+export const ReservaMostrarMesas = ({ fecha, mesas }) => {
 
     const [reservas, setReservas] = useState([]);
     const [celdas, setCeldas] = useState([]);
-    const [mesas, setMesas] = useState (0)
+    const [mesasOcupadas, setMesasOcupadas] = useState (0)
 
     const getReservas = async () => {
         try {
@@ -28,21 +28,25 @@ export const ReservaMostrarMesas = ({ fecha }) => {
     };
 
     const calcularMesas = () => {
-        setMesas(0);
+        setMesasOcupadas(0);
         reservas.map( (reserva) => (
-            setMesas (contador => contador + reserva.mesas)
+            setMesasOcupadas (contador => contador + reserva.mesas)
         ) )
+
+
     };
         
     const calcularCeldas = () => {
         const nuevasCeldas = [];
-        for (let i = 0; i < mesas; i++) {
+        for (let i = 0; i < mesasOcupadas; i++) {
             nuevasCeldas.push('red');
         }
-        for (let i = mesas; i < 24; i++) {
+        for (let i = mesasOcupadas; i < 24; i++) {
             nuevasCeldas.push('green');
         }
         setCeldas (nuevasCeldas);
+        mesas( 24 - mesasOcupadas)
+        
     };
 
     useEffect( () => {
@@ -60,7 +64,7 @@ export const ReservaMostrarMesas = ({ fecha }) => {
     useEffect ( () => {
         calcularCeldas();
         },
-        [mesas]
+        [mesasOcupadas]
     );
 
     return (
