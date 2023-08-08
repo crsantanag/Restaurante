@@ -55,7 +55,11 @@ export const NavBar = () => {
                 <NavLink className="nav-link" to="/administracion">
                   Administración
                 </NavLink>
-            </li>
+              </li>
+              <li className="nav-item ml-auto">
+                <NavLink className="nav-link" to="/consultareservas">
+                </NavLink>
+              </li>
             </ul>
           </div>
         </div>
