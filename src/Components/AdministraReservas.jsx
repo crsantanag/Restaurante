@@ -90,7 +90,7 @@ return (
                 <td>
                 <button className='btn btn-light mx-2'>Modifica</button>
                 <button className='btn btn-light mx-2'>Elimina</button>
-                                </td>
+                </td>
               </tr>
               ) ) }
             </tbody>

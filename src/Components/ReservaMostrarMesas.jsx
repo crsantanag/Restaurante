@@ -39,7 +39,7 @@ export const ReservaMostrarMesas = ({ fecha }) => {
         for (let i = 0; i < mesas; i++) {
             nuevasCeldas.push('red');
         }
-        for (let i = mesas; i < 20; i++) {
+        for (let i = mesas; i < 24; i++) {
             nuevasCeldas.push('green');
         }
         setCeldas (nuevasCeldas);

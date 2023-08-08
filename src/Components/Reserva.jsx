@@ -202,7 +202,6 @@ export const Reserva = () => {
         </form>
 
         <br />
-        <br />
         <button className='boton_reserva' 
                 id='boton_reserva' 
                 type="submit"
@@ -219,8 +218,7 @@ export const Reserva = () => {
         <h2>Mesas</h2>
         <br />
         <div>
-          <ReservaMostrarMesas fecha = {fechaReserva} mesas = {mesasLibres}/>
-          Mesas libres {mesasLibres}
+          <ReservaMostrarMesas fecha = {fechaReserva} />
         </div>
       </div>
       

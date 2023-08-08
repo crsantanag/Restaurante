@@ -13,7 +13,7 @@
 
 .mostrar {
     justify-content: center;
-    padding: 50px;
+    padding: 10px;
     align-items: 'center';
     justify-content: center;
     padding-top: 0;
@@ -21,8 +21,8 @@
 
 .contenedor {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 15px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
     align-items: center;
     justify-content: center
 }
@@ -37,12 +37,12 @@
 }
 
 .mesas {
-    width: 60px;
-    height:60px;
+    width: 50px;
+    height:50px;
     background-color: #20b2aa;
     color: white;
     text-align: center;
-    margin: 20px
+    margin: 5px
 }
 
 .reserva_nombre {
@@ -105,5 +105,8 @@
     border-radius: 5px;
 }
 
-
-
+@media (min-width: 768px) {
+    .contenedor {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
