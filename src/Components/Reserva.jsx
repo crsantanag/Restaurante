@@ -69,7 +69,7 @@ export const Reserva = () => {
   };
 
   const validarDatos = () => {
-    if (showErrorDatos) return
+    if (showErrorLibre) return
     if (nombre.trim() === '' || email.trim() === '' || telefono === ''  || horaReserva == '' || fechaReserva === '') 
       {
         setShowErrorDatos(true)
