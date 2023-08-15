@@ -66,6 +66,8 @@ export const Reserva = () => {
   const handleChangeHora = (event) => {
     event.preventDefault();
     setHoraReserva(event.target.value);
+    setShowErrorDatos (false)
+    setShowExito (false)
   };
 
   const validarDatos = () => {
@@ -104,7 +106,6 @@ export const Reserva = () => {
 
     const  enviarReserva  = async (reserva) => {
       await db.collection ("reservas").add (reserva)
-   
 
       setFechaReserva('')
       setHoraReserva('')
