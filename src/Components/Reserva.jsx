@@ -350,11 +350,13 @@ export const Reserva = () => {
       </div>
 
       <div className='right-content'>
-        < br />
+        <br />
         <h2>Mesas</h2>
+        <div  style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <div>
           <ReservaMostrarMesas fecha = {fechaReserva} mesas = {setMesasLibres} libre = {setShowErrorLibre}/>
           <br />
+        </div>
         </div>
       </div>
     </div>  
