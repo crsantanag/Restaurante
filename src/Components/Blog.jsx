@@ -21,8 +21,8 @@ export const Blog = () => {
           esforzarse para conseguir la comida y le dan esa textura firme tan característica en su carne. Al ser un animal 
           muy selectivo, come lo mejor que caza en sus aguas, ese marisco que le da el sabor tan especial y tan valorado.
 					</p>
-					<p className="author-name">Carlos Santana</p>
-					<p className="publication-date">20 de julio de 2023</p>
+					<div className="author-name">Carlos Santana</div>
+					<div className="publication-date">20 de julio de 2023</div>
 				</div>
 			</div>
 
@@ -38,8 +38,8 @@ export const Blog = () => {
           esforzarse para conseguir la comida y le dan esa textura firme tan característica en su carne. Al ser un animal 
           muy selectivo, come lo mejor que caza en sus aguas, ese marisco que le da el sabor tan especial y tan valorado.
 					</p>
-					<p className="author-name">Carlos Santana</p>
-					<p className="publication-date">26 de julio de 2023</p>
+					<div className="author-name">Carlos Santana</div>
+					<div className="publication-date">26 de julio de 2023</div>
 				</div>
 			</div>
 
@@ -61,8 +61,8 @@ export const Blog = () => {
           Es una de las recetas más antiguas de Europa referente a postres y ya aparece su receta en libros como 
           “Libre de Sent Soví” del siglo XIV o el “Llibre del Coch” del XVI.
 					</p>
-					<p className="author-name">Carlos Santana</p>
-					<p className="publication-date">27 de junio de 2023</p>
+					<div className="author-name">Carlos Santana</div>
+					<div className="publication-date">27 de julio de 2023</div>
 				</div>
 			</div>
 
@@ -78,8 +78,8 @@ export const Blog = () => {
           se han agrupado todos los vinos por su tipología, lo que hará mucho más fácil la elección. Vinos blancos, rosados, 
           tinto y cavas.
 					</p>
-					<p className="author-name">Carlos Santana</p>
-					<p className="publication-date">26 de junio de 2023</p>
+					<div className="author-name">Carlos Santana</div>
+					<div className="publication-date">26 de julio de 2023</div>
 				</div>
 			</div>
 			

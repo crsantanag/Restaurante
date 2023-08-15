@@ -31,27 +31,34 @@
     text-align: center;
 }
 
-.right-content {
+.reserva_fecha {
+    width: 130px;
+    text-align: left;
+    font-size: 18px;
+    padding-right: 5px;
+}
+.reserva_hora {
+    width: 130px;
+    text-align: left;
+    font-size: 18px;
+    padding-right: 5px;
+}
+
+.reserva_campos {
     align-items: center;
     text-align: center;
-    justify-content: center
-}
-
-.mesas {
-    width: 50px;
-    height:50px;
-    color: white;
-    text-align: center;
-    margin: 5px;
-}
-
-.reserva_nombre {
-    width: 130px;
+    width: 200px;
     font-size: 18px;
-    text-align: left;
-    padding-right: 5px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    border-radius: 0px;
+    border: 1px solid black
+}
+
+.reserva_error {
+    display: 'flex';
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 500px;
 }
 
 .misma_linea {
@@ -70,27 +77,33 @@
     font-size: 18px;
 }
 
-.reserva_hora {
-    width: 130px;
-    text-align: left;
+.boton_restasuma {
+    width: 50px;
     font-size: 18px;
-    padding-right: 5px;
+    border: 1px solid black
 }
 
-.reserva_fecha {
+.reserva_nombre {
     width: 130px;
-    text-align: left;
     font-size: 18px;
+    text-align: left;
     padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
-.reserva_campos {
+.right-content {
     align-items: center;
     text-align: center;
-    width: 200px;
-    font-size: 18px;
-    border-radius: 0px;
-    border: 1px solid black
+    justify-content: center
+}
+
+.mesas {
+    width: 50px;
+    height:50px;
+    color: white;
+    text-align: center;
+    margin: 5px;
 }
 
 .boton_reserva {

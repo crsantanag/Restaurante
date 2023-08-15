@@ -3,6 +3,14 @@
   background-color: rgb(230, 230, 230);
 }
 
+.contacto_mensaje {
+  display: 'flex';
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 500px;
+}
+
 .nombre {
       width: 80px;
       text-align: left;

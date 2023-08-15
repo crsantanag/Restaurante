@@ -14,6 +14,12 @@ export const Reserva = () => {
   const fechaHoyObjeto   = new Date(fechaHoyCompleta);
   const fechaHoyNumero   = fechaHoyObjeto.getTime();
 
+//  const fechaHoyNumeroCLS = fechaHoyNumero - (4*60*60*1000)
+//  const fechaHoyCLS       = new Date(fechaHoyNumeroCLS)
+//  const fechaHoyStringCLS = fechaHoyCLS.toISOString()
+//  const fechaHoyStringCLS = fechaHoyCLS.toISOString().slice(0, 10)
+//  const horaHoyStringCLS  = fechaHoyCLS.toISOString().slice(11, 16)
+
   const fechaMananaNumero   = fechaHoyNumero + (24*60*60*1000) - (4*60*60*1000)
   const fechaManana         = new Date(fechaMananaNumero) // Tiempo en milisegundos
   const fechaMananaStringCL = fechaManana.toISOString().slice(0, 10);
@@ -31,7 +37,6 @@ export const Reserva = () => {
   const [showErrorDatos, setShowErrorDatos] = useState(false);
   const [showExito, setShowExito] = useState(false);
   const [showErrorMesas, setShowErrorMesas] = useState(false);
-  const [showErrorLibre, setShowErrorLibre] = useState(false)
 
   const [fechaReserva, setFechaReserva] = useState('')
   const [horaReserva, setHoraReserva] = useState('')
@@ -50,26 +55,20 @@ export const Reserva = () => {
   const handleChangeFecha = (event) => {
     event.preventDefault();
     setFechaReserva(event.target.value);
-
     setShowErrorDatos (false)
-    setShowErrorLibre (false)
     setShowExito (false)
     setShowErrorMesas (false)
-
-    setHoraReserva('')
-    setComensales(1)
-    setNombre ('')
-    setEmail('')
-    setTelefono('')
   };
 
   const handleChangeHora = (event) => {
     event.preventDefault();
     setHoraReserva(event.target.value);
+    setShowErrorDatos (false)
+    setShowExito (false)
+    setShowErrorMesas (false)
   };
 
   const validarDatos = () => {
-    if (showErrorDatos) return
     if (nombre.trim() === '' || email.trim() === '' || telefono === ''  || horaReserva == '' || fechaReserva === '') 
       {
         setShowErrorDatos(true)
@@ -80,7 +79,7 @@ export const Reserva = () => {
         const mesas = Math.round (Math.max (1, (comensales / 2) - 1));
 
         if (mesasLibres == 0) {
-          setShowErrorLibre(true)
+          alert ('No existen mesas disponibles')
         }
         else {
           if (mesas > mesasLibres) {
@@ -104,22 +103,18 @@ export const Reserva = () => {
 
     const  enviarReserva  = async (reserva) => {
       await db.collection ("reservas").add (reserva)
-   
+      setShowExito(true)
 
-      setFechaReserva('')
       setHoraReserva('')
+      setFechaReserva('')
       setComensales(1)
       setNombre ('')
       setEmail('')
       setTelefono('')
-
-      setShowErrorDatos (false)
-      setShowErrorLibre (false)
-      setShowErrorMesas (false)
-      setShowExito(true)
     }
 
     const revisaMesas = () => {
+
       const mesas = Math.round (Math.max (1, (comensales / 2) - 1));
       if ( mesas > mesasLibres) {
         setShowErrorMesas (true)
@@ -127,6 +122,7 @@ export const Reserva = () => {
       else {
         setShowErrorMesas (false)
       }
+      setShowErrorDatos (false)
     }
 
 /*   const sumarUno = () => {
@@ -143,7 +139,7 @@ export const Reserva = () => {
 */
 
     function AlertaErrorDatos ( { variante, mensaje1, mensaje2 } ) {
-    if (showErrorDatos) {
+      if (showErrorDatos) {
         return (
           <Alert variant={variante} onClose={() => setShowErrorDatos (false)} dismissible>
             <Alert.Heading> {mensaje1} </Alert.Heading>
@@ -152,28 +148,6 @@ export const Reserva = () => {
         );
       }
       return <Button onClick={() => setShowErrorDatos (true)}>Show Alert</Button>;
-    }
-
-    function AlertaErrorLibre ( { variante, mensaje1, mensaje2 } ) {
-      if (showErrorLibre) {
-        return (
-          <Alert variant = {variante} onClose={() => {  setShowErrorLibre(false),
-                                                        setShowErrorMesas(false),
-                                                        setShowErrorDatos(false),
-                                                        setFechaReserva(''),
-                                                        setHoraReserva(''),
-                                                        setComensales(1),
-                                                        setNombre (''),
-                                                        setEmail(''),
-                                                        setTelefono('')
-                                                        }} dismissible>
-            <Alert.Heading>  {mensaje1} </Alert.Heading>
-            <p> {mensaje2} </p>
-          </Alert>
-        );
-      }
-
-      return <Button onClick={() => setShowErrorLibre(true)}>Show Alert</Button>;
     }
 
     function AlertaErrorMesas ( { variante, mensaje1, mensaje2 } ) {
@@ -207,34 +181,26 @@ export const Reserva = () => {
   <>
   <div className='reserva'>
     <br />
+    {showExito && (
+      <AlertaExito />
+    )}
     <div className='mostrar'>
 
       <div className="left-content">
         <br/>
         <h2>Solicitud de Reserva</h2>
-        {showExito && (
-          <AlertaExito />
-        )}
+        <br />
         <h5>Condiciones: <br/>
         - No  se  aceptan reservas para el mismo día <br/>
         - Máximo 12 comensales por reserva <br />
         - Reservas para grupos hacerlas por teléfono<br /> </h5>
-        <br />
+        <br/>
 
-        <div  style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <div  className='reserva_error'>
         {showErrorDatos && (
-          <AlertaErrorDatos variante = 'warning' 
+          <AlertaErrorDatos variante = 'danger' 
                             mensaje1 = 'Error en ingreso de datos' 
                             mensaje2 = 'Todos los datos solicitados deben ingresarse' />
         )}
-        {showErrorLibre && (
-          <AlertaErrorLibre variante = 'warning' 
-                            mensaje1 = 'No existen mesas disponibles' 
-                            mensaje2 = 'Debe buscar reservar en otro día' />
-        )}
-        </div>
-        </div>
 
         <form >
           <div>
@@ -252,6 +218,9 @@ export const Reserva = () => {
 
         <form>
           <div>
+            {/*
+            input type time min 19.00 max 23.00 step 00.30 
+            */}
             <label  className='reserva_hora' 
                     htmlFor="horas">Hora reserva : 
             </label>
@@ -267,17 +236,13 @@ export const Reserva = () => {
             </select>
           </div>
         </form>
-        <br />
 
-        <div  style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <div  className='reserva_error'>
-        {showErrorMesas && (mesasLibres ==! 0) && (
-          <AlertaErrorMesas variante = 'warning' 
+        <br />
+        {showErrorMesas && (
+          <AlertaErrorMesas variante = 'danger' 
                             mensaje1 = 'No existen mesas para la cantidad de comensales seleccionados' 
                             mensaje2 = 'Disminuya la cantidad de comensales, o reserve en otro día' />
         )}
-        </div>
-        </div>
 
         <div className='misma_linea'>
           <div className='reserva_signo'> <BotonRestar comensales = {comensales} setComensales = {setComensales} /> </div>
@@ -351,8 +316,9 @@ export const Reserva = () => {
       <div className='right-content'>
         < br />
         <h2>Mesas</h2>
+        <br />
         <div>
-          <ReservaMostrarMesas fecha = {fechaReserva} mesas = {setMesasLibres} libre = {setShowErrorLibre}/>
+          <ReservaMostrarMesas fecha = {fechaReserva} mesas = {setMesasLibres}/>
           <br />
         </div>
       </div>

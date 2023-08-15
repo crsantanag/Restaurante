@@ -13,7 +13,7 @@ export const BotonSumar = ( { comensales, setComensales } ) => {
         setComensales (contador => contador + 1)
 
         console.log ('SUMAR - Comensales después de cambiar el estado : ', comensales)
-        console.log ('SUMAR - vvvvvvvvvvvvvvvvvvvvvvvvv')
+        console.log ('vvvvvvvvvvvvvvvvvvvvvvvvv')
     }
     
     return (
