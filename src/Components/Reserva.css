@@ -89,7 +89,8 @@
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
     align-items: center;
-    justify-content: center
+    /*justify-content: center; */
+    justify-content: space-between;
 }
 
 .mesas {
@@ -116,5 +117,6 @@
 @media (min-width: 768px) {
     .contenedor {
         grid-template-columns: repeat(4, 1fr);
+        justify-content: space-between;
     }
 }
