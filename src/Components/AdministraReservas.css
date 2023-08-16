@@ -18,8 +18,6 @@
     padding-right: 5px;
 }
 
-
-
 .reserva_fecha_admin {
     width: 200px;
     font-size: 18px;
@@ -47,5 +45,9 @@
     border-radius: 5px;
 }
 
-
+@media (max-width: 768px) {
+    .mostrar_admin {
+        padding: 20px;
+    }
+}
 
