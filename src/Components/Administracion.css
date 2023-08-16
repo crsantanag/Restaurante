@@ -34,5 +34,7 @@
     .administracion_admin {
         padding: 10px;
     }
+    .administracion_submit {
+        width: 200px;
+    }
 }
-  
