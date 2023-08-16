@@ -33,7 +33,7 @@ export const Administracion = () => {
 
 return (
   <>
-    <div className='mostrar_admin'>
+    <div className='administracion_admin'>
     <br />
     <h2>Administración</h2>
       <form onSubmit={handleSubmitLogin}>

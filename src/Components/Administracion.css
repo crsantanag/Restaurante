@@ -5,7 +5,7 @@
 
 .administracion_admin {
     justify-content: left;
-    padding: 120px;
+    padding: 100px;
     padding-top: 0;
     padding-bottom: 0;
 }
@@ -29,3 +29,11 @@
     cursor: pointer;
     border-radius: 5px;
 }
+
+@media (max-width: 768px) {
+    .administracion_admin {
+        padding: 10px;
+  
+    }
+  }
+  
