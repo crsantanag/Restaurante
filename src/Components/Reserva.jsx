@@ -216,10 +216,10 @@ export const Reserva = () => {
         {showExito && (
           <AlertaExito />
         )}
-        <h5>Condiciones: <br/>
+        <h6>Condiciones: <br/>
         - No  se  aceptan reservas para el mismo día <br/>
         - Máximo 12 comensales por reserva <br />
-        - Reservas para grupos hacerlas por teléfono<br /> </h5>
+        - Reservas para grupos hacerlas por teléfono<br /> </h6>
         <br />
 
         <div  style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
