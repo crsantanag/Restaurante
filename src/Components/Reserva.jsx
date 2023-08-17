@@ -209,7 +209,7 @@ export const Reserva = () => {
   <div className='reserva'>
     <br />
     <div className='mostrar'>
-
+      
       <div className="left-content">
         <br/>
         <h2>Solicitud de Reserva</h2>

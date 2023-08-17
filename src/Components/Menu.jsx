@@ -14,8 +14,9 @@ export const Menu = () => {
         <br/>
         <br/>
         <img className= "menu_carta" src="/assets/images/vinos.jpg" alt="Vinos" />
+        <br />
+        <br />
       </div>
-
     </div>
   )
 }
